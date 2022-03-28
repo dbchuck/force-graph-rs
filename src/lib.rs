@@ -192,6 +192,12 @@ impl<UserNodeData, UserEdgeData> ForceGraph<UserNodeData, UserEdgeData> {
         idx
     }
 
+    /// Allow updating node data
+    pub fn update_node(&mut self, node_index: DefaultNodeIdx) -> &mut NodeData<UserNodeData> {
+        let node_data = self.graph.node_weight_mut(node_index).expect("Unable to find node index.");
+        &mut node_data.data
+    }
+
     /// Removes a node by index.
     pub fn remove_node(&mut self, idx: DefaultNodeIdx) {
         self.graph.remove_node(idx);
