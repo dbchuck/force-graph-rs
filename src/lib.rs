@@ -193,9 +193,9 @@ impl<UserNodeData, UserEdgeData> ForceGraph<UserNodeData, UserEdgeData> {
     }
 
     /// Allow viewing node data
-    pub fn get_node(&self, node_index: DefaultNodeIdx) -> &NodeData<UserNodeData> {
+    pub fn get_node(&self, node_index: DefaultNodeIdx) -> &Node<UserNodeData> {
         let node_data = self.graph.node_weight(node_index).expect("Unable to find node index.");
-        &node_data.data
+        &node_data
     }
 
     /// Allow updating node data
